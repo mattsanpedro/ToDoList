@@ -12,4 +12,9 @@
   <div class="form-group">
     <%= f.submit class: "btn btn-lg btn-primary" %>
   </div>
+  <ul>
+  <% @itinerary.errors.full_messages.each do |full_message| %>
+    <li><%= full_message %></li>
+  <% end %>
+</ul>
 <% end %>
