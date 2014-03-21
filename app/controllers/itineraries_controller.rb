@@ -1,9 +1,12 @@
 class ItinerariesController < ApplicationController
+	
+	helper_method :sort_column, :sort_direction
+
 	def show
 		@itinerary = Itinerary.find(params[:id])
 	end
 	def index
-		@itineraries = Itinerary.all
+		 @itineraries = Itinerary.order([sort_column, sort_direction].join(" "))
 	end
 	def new
 		@itinerary = Itinerary.new
@@ -33,6 +36,12 @@ class ItinerariesController < ApplicationController
 	
 	def itinerary_params
 		params.require(:itinerary).permit(:location, :travel_on)
+	end
+	def sort_column
+		Itinerary.column_names.include?(params[:sort]) ? params[:sort] : "location"
+	end
+	def sort_direction
+		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
 	end
 	
 end

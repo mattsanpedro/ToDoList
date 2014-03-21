@@ -3,8 +3,8 @@
 <p><%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %></p>
 <table>
 	<tr>
-		<th>Location</th>
-		<th>Travel Date</th>
+		<th><%= sortable 'location' %></th>
+    	<th><%= sortable 'travel_on', 'Travel Date' %></th>
 	</tr>
 <% @itineraries.each do |itinerary| %>
 	<tr>
