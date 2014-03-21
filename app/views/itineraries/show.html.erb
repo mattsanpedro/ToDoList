@@ -1,0 +1,9 @@
+<% itinerary = Itinerary.find(params[:id]) %>
+
+<h1>Itinerary <%= @itinerary.id %></h1>
+
+<ul>
+	<li>Location: <%= @itinerary.location %></li>
+	<li>Travel Date: <%= @itinerary.travel_on %></li>
+	<p><%= link_to 'Back', action: 'index' %></p>
+</ul>

@@ -1,0 +1,16 @@
+<h1>Itineraries</h1>
+
+<p><%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %></p>
+<table>
+	<tr>
+		<th>Location</th>
+		<th>Travel Date</th>
+	</tr>
+<% @itineraries.each do |itinerary| %>
+	<tr>
+		<td><%= itinerary.location %></td>
+		<td><%= itinerary.travel_on %></td>
+		<td><%= link_to 'Show', action: 'show', id: itinerary.id %></td>
+	</tr>
+<% end %>
+</table>
