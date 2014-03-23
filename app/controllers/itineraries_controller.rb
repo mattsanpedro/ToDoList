@@ -31,6 +31,21 @@ class ItinerariesController < ApplicationController
 			render action: 'edit'
 		end
 	end
+	def complete
+      	if Task.ids(params[:task_ids]).update_all(is_completed: true) 
+        	redirect_to completed_tasks_path  
+      	else
+        	redirect_to tasks_path
+      	end
+  	end
+
+  	def unmark
+      	if Task.where.not(id: params[:task_ids]).update_all(is_completed: false) 
+       		redirect_to tasks_path  
+      	else
+        	redirect_to completed_tasks_path
+      	end
+  	end
 
 	private
 	

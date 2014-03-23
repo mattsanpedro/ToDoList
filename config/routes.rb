@@ -1,8 +1,9 @@
 ToDoList::Application.routes.draw do
+  devise_for :views
+  devise_for :users
   resources :itineraries
 end
-  resources :do ToDoList
-end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

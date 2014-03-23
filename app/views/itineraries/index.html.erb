@@ -3,11 +3,13 @@
 <p><%= link_to 'New', { action: 'new' }, class: 'btn btn-default' %></p>
 <table>
 	<tr>
+		<th></th>
 		<th><%= sortable 'location' %></th>
     	<th><%= sortable 'travel_on', 'Travel Date' %></th>
 	</tr>
 <% @itineraries.each do |itinerary| %>
 	<tr>
+		<td><input type="checkbox" name="checkbox" value="value"></td>
 		<td><%= itinerary.location %></td>
 		<td><%= itinerary.travel_on %></td>
 		<td><%= link_to 'Show', { action: 'show', id: itinerary.id }, class: 'btn btn-default' %></td>
